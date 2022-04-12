@@ -1,1 +1,49 @@
-<p>test works!</p>
+<h2>Test Component</h2>
+<div>
+    <ol>
+        <li>
+            <h3>Interpolation</h3> Getting variable value from <b><i>name.component.ts</i></b>  by enclosing var name in between two
+            nested flower brackets => {{interpolationExample}}
+        </li>
+
+        <li>
+            <h3>Property Binding</h3>
+            <p>Variable values from name.component.ts can be binded to html properties using [property] = "varName"</p>
+            <p>Interpolation can used as well to bind varNames to properties</p>
+            Example: [id] = varName <input [id]="propertyBindingExample" type="text">
+            <p>When it comes to boolean values, interpolation doesn't work hence property binding should be used</p>
+            <p> <u>Boolean property example</u> </p>
+            <ul>
+                <li>[disabled] = "false" <input [disabled]="false" [id]="propertyBindingExample" type="text"></li>
+                <br>
+                <li>[disabled] = "true" <input [disabled]="true" [id]="propertyBindingExample" type="text"></li>
+            </ul>
+        </li>
+
+        <li>
+            <h3>Class Binding</h3>
+            <p>Can be achieved by declaring <br> varName = "css class-name" in <b><i>name.component.ts</i></b> <br> [class] = "varName" in <b><i>name.component.html</i></b> </p>
+            <p>Example: <br> public classBindingExample = "text-success" in <b><i>name.component.ts</i></b> <br> [class] = "classBindingExample" in <b><i>name.component.html</i></b> </p>
+            <h4 [class]="classBindingExample">Test for class binding</h4>
+            <p><u>Boolean values in class binding</u></p>
+            <p>Example: <br> [class.css class-name] = "true" => <span [class.text-danger]="true"> Test for class binding </span></p>
+            <p>[class.css class-name] = "false" => <span [class.text-danger]="false"> Test for class binding </span></p>
+            <p><u>ngClass directive in class binding</u></p>
+            <p>ngClass is mainly used to bind multiple CSS properties</p>
+            <p>Example: ngClasses are defined in <b><i>name.component.ts</i></b> => <span [ngClass]="messageClasses"> Test for ngClass</span></p>
+        </li>
+
+        <li>
+            <h3>Style Binding</h3>
+            <p>Binding style property using [style.property-name] = "'value'"</p>
+            <p>Example: [style.color] = "'orange'" =><span [style.color] = "'orange'"> Test for style binding</span></p>
+            <p>Example: ngStyles are defined in <b><i>name.component.ts</i></b> => <span [ngStyle]="titleStyles"> Test for ngStyle</span></p>
+        </li>
+
+        <li>
+            <h3>Event Binding</h3>
+            <p>Test for event binding, this is for communicating from Template to Class</p>
+            <p><button (click)="onClick()">Press here</button> {{greeting}} </p>
+        </li>
+    </ol>
+</div>

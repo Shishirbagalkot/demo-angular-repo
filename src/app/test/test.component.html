@@ -43,7 +43,45 @@
         <li>
             <h3>Event Binding</h3>
             <p>Test for event binding, this is for communicating from Template to Class</p>
-            <p><button (click)="onClick()">Press here</button> {{greeting}} </p>
+            <p><button (click)="onClick($event)">Press here</button> {{greeting}} </p>
+        </li>
+
+        <li>
+            <h3>Template Reference Variables</h3>
+            <p>Flow of data from template(view) to class to perform certain operations</p>
+            <p><input #myInput type="text"> This logs the message entered to console</p>
+            <p><button (click)="logMessage(myInput)">Call Pizza</button></p>
+        </li>
+
+        <li>
+            <h3>Two Way Binding</h3>
+            <p>Keeping view and class in sync to preserve consistency</p>
+            <p>Need to import forms module to use this feature</p>
+            <p> View: <input [(ngModel)]="twoWayBindingExample" type="text"> </p>
+            <p> Class: {{twoWayBindingExample}}</p>
+        </li>
+
+        <li>
+            <h3>Structural Directives</h3>
+            <p>To add or remove HTML elements, to be used in HTML tags</p>
+            <ul>
+                <li>
+                    <u>ngIf</u>
+                    <p>*ngIf = "true" =><span *ngIf = "true">Test for ngIf</span></p>
+                    <p>*ngIf = "false" =><span *ngIf = "false">Test for ngIf</span></p>
+
+                    <p *ngIf = "displayName; else elseblock">Test for ngIf and ngElse</p>
+                    <ng-template #elseblock>
+                        <p>Test for ngElse</p>
+                    </ng-template>
+                </li>
+                <li>
+                    <u>ngSwitch</u>
+                </li>
+                <li>
+                    <u>ngFor</u>
+                </li>
+            </ul>
         </li>
     </ol>
 </div>

@@ -32,12 +32,24 @@ export class TestComponent implements OnInit {
   //event binding
   public greeting = ""
 
+  //two way binding
+  public twoWayBindingExample = ""
+
+  //structural directives
+  public displayName = false
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onClick() {
-    this.greeting = "Welcome to Angular"
+  //event binding
+  onClick(event: { type: string; }) {
+    this.greeting = event.type
+  }
+
+  //template reference variables
+  logMessage(value: any) {
+    console.log(value)
   }
 }

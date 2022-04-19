@@ -3,4 +3,5 @@
     Learning Angular (App Component)
   </h1>
 </div>
-<app-test></app-test>
+<app-test (childEvent) = "message=$event" [parentData] = "name"></app-test>
+{{message}}

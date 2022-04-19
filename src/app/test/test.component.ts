@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -38,6 +38,25 @@ export class TestComponent implements OnInit {
   //structural directives
   public displayName = false
 
+  //ngSwitch directive
+  public switchColor = "red"
+
+  //ngFor directive
+  public forColor = ["red", "green", "blue", "yellow"]
+
+  //ComponentInteration
+  @Input() public parentData: any
+  @Output() public childEvent = new EventEmitter()
+
+  //Pipes
+  public pipeName = "PiPeS aRe usED"
+  public pipeJson = {
+    "fName": "Jane",
+    "mName": "O",
+    "lName": "Doe"
+  }
+  public pipeDate = new Date()
+
   constructor() { }
 
   ngOnInit(): void {
@@ -51,5 +70,10 @@ export class TestComponent implements OnInit {
   //template reference variables
   logMessage(value: any) {
     console.log(value)
+  }
+
+  //ComponentInteration
+  execEvent() {
+    this.childEvent.emit("Sent from test component")
   }
 }

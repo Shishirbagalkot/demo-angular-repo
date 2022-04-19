@@ -76,12 +76,62 @@
                     </ng-template>
                 </li>
                 <li>
-                    <u>ngSwitch</u>
+                    <u>ngSwitch directive</u>
+                    <div [ngSwitch]="switchColor">
+                        <p *ngSwitchCase="'red'">You picked Red</p>
+                        <p *ngSwitchCase="'green'">You picked Green</p>
+                        <p *ngSwitchCase="'blue'">You picked Blue</p>
+                        <p *ngSwitchDefault>Pick again</p>
+                    </div>
                 </li>
                 <li>
                     <u>ngFor</u>
+                    <p>Used to iterate through an array of elements</p>
+                    <div *ngFor="let color of forColor">
+                        <p>{{color}}</p>
+                    </div>
+                    <p><u>Printing along with indices</u></p>
+                    <div *ngFor="let color of forColor; index as i">
+                        <p>{{i}}: {{color}}</p>
+                    </div>
                 </li>
             </ul>
+        </li>
+        <li>
+            <h3>Component Interaction</h3>
+            <p><u>Part of test component</u></p>
+            <p>App component to Test component using @Input decorator => {{parentData}}</p>
+            <p><button (click)="execEvent()">Send</button> event to app component from test component using @Output decorator</p>
+            <p><u>Part of app component</u></p>
+        </li>
+        <li>
+            <h3>Pipes</h3>
+            <p>Allow transformation of data before being displayed</p>
+            <p>Before conversion: {{ pipeName }}</p>
+            <ul>
+                <li>Lower case: {{ pipeName | lowercase}} </li>
+                <li>Upper case: {{ pipeName | uppercase}} </li>
+                <li>Title case: {{ pipeName | titlecase}}</li>
+                <li>Slicing: {{ pipeName | slice: 3}}</li>
+                <li>Json: {{pipeJson | json}}</li>
+                <li>Floating point values
+                    <ul>
+                        <li>{{64.920 | number:'2.2-3'}} => '2.2-3': 2:min no of int digits, .2: min no of float digits, 3:max no of float digits</li>
+                        <li>{{64.920 | number:'3.3-4'}}</li>
+                        <li>{{64.920 | number:'4.4-5'}}</li>
+                    </ul>
+                </li>
+                <li>Date
+                    <ul>
+                        <li>{{pipeDate}}</li>
+                        <li>{{pipeDate | date:'short'}}</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Converted in interpolation using => varName | casing</p>
+        </li>
+        <li>
+            <h3>Services</h3>
         </li>
     </ol>
 </div>
